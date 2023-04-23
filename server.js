@@ -77,6 +77,3 @@ app.delete("/api/restaurants/:id", (req, res) => {
         res.status(500).json({message: "Data is not deleted"});
     }); 
 });
-
-// setup http server to listen on HTTP_PORT
-app.listen(HTTP_PORT, onHttpStart);
