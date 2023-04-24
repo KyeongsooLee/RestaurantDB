@@ -13,16 +13,11 @@ app.use(express.json());
 db.initialize(`mongodb+srv://${process.env.Mongoose_USERNAME}:${process.env.Mongoose_PASSWORD}@restaurantdb.6rjptnv.mongodb.net/sample_restaurants?retryWrites=true&w=majority`)
     .then(()=>{
         app.listen(HTTP_PORT, ()=>{
-         console.log(`server listening on: ${HTTP_PORT}`);
+         console.log(`server listening on: http://localhost:${HTTP_PORT}`);
         });    
     }).catch((err)=>{
     console.log(err);
 });
-
-// call this function after the http server starts listening for requests
-function onHttpStart() {
-    console.log("Express http server listening on: " + HTTP_PORT);
-  }
 
 app.get("/", (req, res) => {
     res.json({message: "API Listening"});
